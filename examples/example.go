@@ -1,26 +1,18 @@
-# HTTP Server-Timing for Gin (a HTTP web framework written in Golang)
-[![Godoc](https://godoc.org/github.com/p768lwy3/gin-server-timing?status.svg)](https://godoc.org/github.com/p768lwy3/gin-server-timing)
+package main
 
-This is a project for myself to know more about API server in Golang and Thank you for 
-repository [go-server-timing](https://github.com/mitchellh/go-server-timing/) by 
-[mitchellh](https://github.com/mitchellh). It is my first time to play with Golang and 
-this is quite cool.
+import (
+	"fmt"
+	"math/rand"
+	"net/http"
+	"sync"
+	"time"
 
-## Description
+	"github.com/gin-gonic/gin"
+	servertiming "github.com/p768lwy3/gin-server-timing"
+)
 
-This is a library to build a middleware of HTTP Server-Timing for Gin, which this header 
-allow a server to send timing metrics from the backend to show processing times on the 
-browser as below:
-
-![Server Timing Example](https://raw.githubusercontent.com/p768lwy3/gin-server-timing/master/example/screenshot.png)
-
-## Usage
-
-Example usage is shown below.
-
-```go
 func main() {
-    // Build router from gin-gonic/gin
+	// Build router from gin-gonic/gin
 	router := gin.Default()
 
 	// Wrap handler with timing middleware
@@ -32,7 +24,6 @@ func main() {
 	// Run gin application
 	router.Run()
 }
-
 
 func Handler(c *gin.Context) {
 	// Create a wait group to wait for the response of HTTP fetches
@@ -76,4 +67,3 @@ func Handler(c *gin.Context) {
 func random(min, max int) time.Duration {
 	return (time.Duration(rand.Intn(max-min) + min)) * time.Millisecond
 }
-```
