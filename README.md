@@ -12,7 +12,7 @@ This is a library to build a middleware of HTTP Server-Timing for Gin, which thi
 allow a server to send timing metrics from the backend to show processing times on the 
 browser as below:
 
-![Server Timing Example](https://raw.githubusercontent.com/p768lwy3/gin-server-timing/master/example/screenshot.png)
+![Server Timing Example](https://raw.githubusercontent.com/p768lwy3/gin-server-timing/master/examples/screenshot.png)
 
 ## Usage
 
